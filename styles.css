@@ -1,0 +1,95 @@
+body {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titleHead,
+.subTitleHead {
+    display: flex;
+    font-size: 32px;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.subTitleHead {
+    font-size: 24px;
+}
+
+.handSign {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding-top: 24px;
+}
+
+.btnRockHandSign,
+.btnPaperHandSign,
+.btnScissorsHandSign,
+.btnReset {
+    display: flex;
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    color: black;
+    border: 5px solid grey;
+    font-size: 36px;
+    font-weight: bold;
+    padding-top: 200;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameContent {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 36px;
+}
+
+.playerLiveScore, 
+.computerLiveScore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.pointPlayerLiveScore,
+.pointComputerLiveScore {
+    font-size: 40px;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    font-size: 32px;
+    align-items: center;
+    font-weight: bold;
+}
+
+.roundMainContent {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.playerRound,
+.computerRound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.playerRoundHandSign,
+.computerRoundHandSign {
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    border: 5px solid grey;
+    padding: 20px;
+}

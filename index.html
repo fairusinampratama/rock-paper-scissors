@@ -4,8 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, and Scissors</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="titleHead">Rock-Paper-Scissors</div>
+    <div class="subTitleHead">Choose your hand sign!</div>
+    <div class="handSign">
+        <button class="btnRockHandSign">Rock</button>
+        <button class="btnPaperHandSign">Paper</button>
+        <button class="btnScissorsHandSign">Scissors</button>
+    </div>
+    <div class="gameContent">
+        <div class="playerLiveScore">
+            <div class="titlePlayerLiveScore">Player</div>
+            <div class="pointPlayerLiveScore"></div>
+        </div>
+        <div class="mainContent">
+            <div class="titleMainContent">Game</div>
+            <div class="roundMainContent">
+                <div class="playerRound">
+                    <div class="playerRoundTitle">Player</div>
+                    <div class="playerRoundHandSign"></div>
+                </div>
+                <div class="versusMainContent">VS</div>
+                <div class="computerRound">
+                    <div class="computerRoundTitle">Computer</div>
+                    <div class="computerRoundHandSign"></div>
+                </div>
+            </div>
+            <div class="resultMainContent"></div>
+            <div class="btnReset">Reset</div>
+        </div>
+        <div class="computerLiveScore">
+            <div class="titleComputerLiveScore">Computer</div>
+            <div class="pointComputerLiveScore"></div>
+        </div>
+    </div>
 </body>
 </html>

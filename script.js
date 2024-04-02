@@ -1,22 +1,85 @@
 let counterPlayer = 0;
 let counterComputer = 0;
 
+const btnRockHandSign = document.querySelector(".btnRockHandSign");
+const btnPaperHandSign = document.querySelector(".btnPaperHandSign");
+const btnScissorsHandSign = document.querySelector(".btnScissorsHandSign");
+
+let pointPlayerLiveScore = document.querySelector(".pointPlayerLiveScore");
+let pointComputerLiveScore = document.querySelector(".pointComputerLiveScore");
+
+let playerRoundHandSign = document.querySelector(".playerRoundHandSign");
+let computerRoundHandSign = document.querySelector(".computerRoundHandSign");
+
+let btnReset = document.querySelector(".btnReset");
+btnReset.style.display="none";
+
+let resultMainContent = document.querySelector(".resultMainContent");
+
+btnRockHandSign.addEventListener("click", () => {
+    playGame("rock");
+});
+
+btnPaperHandSign.addEventListener("click", () => {
+    playGame("paper");
+});
+
+btnScissorsHandSign.addEventListener("click", () => {
+    playGame("scissors");
+});
+
+btnReset.addEventListener("click", () => {
+    resetGame();
+});
+
 function getComputerChoice() {
     let arrChoice = ["rock", "paper", "scissors"];
     let choice = arrChoice[Math.floor(Math.random() * arrChoice.length)];
     return choice;
 }
 
+function playGame(playerSelection) {
+    let computerSelection = getComputerChoice();
+
+    const callPlayRound = playRound(playerSelection, computerSelection);
+    resultMainContent.textContent = callPlayRound;
+
+    pointPlayerLiveScore.textContent = counterPlayer;
+    pointComputerLiveScore.textContent = counterComputer;
+
+    playerRoundHandSign.textContent = playerSelection;
+    computerRoundHandSign.textContent = computerSelection;
+
+    if (counterPlayer >= 5 && counterComputer < counterPlayer) {
+        resultMainContent.textContent = "Player Win the game. Congratulations!";
+        btnReset.style.display="";
+        return;
+    } else if (counterComputer >= 5 && counterComputer > counterPlayer) {
+        resultMainContent.textContent = "Computer Win the game. Nice try!";
+        btnReset.style.display="";
+        return;
+    }
+}
+
+function resetGame() {
+    counterComputer = 0;
+    counterPlayer = 0;
+    pointPlayerLiveScore.textContent = counterPlayer;
+    pointComputerLiveScore.textContent = counterComputer;
+    playerRoundHandSign.textContent = "";
+    computerRoundHandSign.textContent = "";
+}
+
 function playRound(playerSelection, computerSelection) {
     switch (true) {
         case (playerSelection === "rock"):
         case (computerSelection === "paper"):
-            ++counterComputer;
+            counterComputer++;
             return "You Lose! Paper beats Rock!";
             break;
         case (playerSelection === "rock"):
         case (computerSelection === "scissors"):
-            ++counterPlayer;
+            counterPlayer++;
             return "You Win! Rock beats Scissors!";
             break;
         case (playerSelection === "rock"):
@@ -25,12 +88,12 @@ function playRound(playerSelection, computerSelection) {
             break;
         case (playerSelection === "paper"):
         case (computerSelection === "rock"):
-            ++counterPlayer;
+            counterPlayer++;
             return "You Win! Paper beats Rock!";
             break;
         case (playerSelection === "paper"):
         case (computerSelection === "scissors"):
-            ++counterComputer;
+            counterComputer++;
             return "You Lose! Scissors beats Paper!";
             break;
         case (playerSelection === "paper"):
@@ -39,12 +102,12 @@ function playRound(playerSelection, computerSelection) {
             break;
         case (playerSelection === "scissors"):
         case (computerSelection === "rock"):
-            ++counterComputer;
+            counterComputer++;
             return "You Lose! Rock beats Scissors!";
             break;
         case (playerSelection === "scissors"):
         case (computerSelection === "paper"):
-            ++counterPlayer;
+            counterPlayer++;
             return "You Win! Scissors beats Paper!";
             break;
         case (playerSelection === "scissors"):
@@ -53,21 +116,3 @@ function playRound(playerSelection, computerSelection) {
             break;
     }
 }
-
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Welcome to our game!\nRock, Paper, or Scissors?!").toLowerCase();
-        let computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    }
-
-    if (counterPlayer > counterComputer) {
-        console.log(`You Win The Game. Congratulations!\nPlayer: ${counterPlayer}\nComputer: ${counterComputer}`);
-    } else if (counterPlayer === counterComputer) {
-        console.log(`Draw! Player vs Computer.\nPlayer: ${counterPlayer}\nComputer: ${counterComputer}`);
-    } else {
-        console.log(`You Lose the game. Good game!\nPlayer: ${counterPlayer}\nComputer: ${counterComputer}`);
-    }
-}
-
-playGame();
