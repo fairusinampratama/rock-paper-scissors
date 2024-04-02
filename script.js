@@ -12,7 +12,7 @@ let playerRoundHandSign = document.querySelector(".playerRoundHandSign");
 let computerRoundHandSign = document.querySelector(".computerRoundHandSign");
 
 let btnReset = document.querySelector(".btnReset");
-btnReset.style.display="none";
+btnReset.style.display = "none";
 
 let resultMainContent = document.querySelector(".resultMainContent");
 
@@ -52,11 +52,11 @@ function playGame(playerSelection) {
 
     if (counterPlayer >= 5 && counterComputer < counterPlayer) {
         resultMainContent.textContent = "Player Win the game. Congratulations!";
-        btnReset.style.display="";
+        btnReset.style.display = "";
         return;
     } else if (counterComputer >= 5 && counterComputer > counterPlayer) {
         resultMainContent.textContent = "Computer Win the game. Nice try!";
-        btnReset.style.display="";
+        btnReset.style.display = "";
         return;
     }
 }
@@ -72,47 +72,31 @@ function resetGame() {
 
 function playRound(playerSelection, computerSelection) {
     switch (true) {
-        case (playerSelection === "rock"):
-        case (computerSelection === "paper"):
+        case (playerSelection === "rock" && computerSelection === "paper"):
             counterComputer++;
             return "You Lose! Paper beats Rock!";
-            break;
-        case (playerSelection === "rock"):
-        case (computerSelection === "scissors"):
+        case (playerSelection === "rock" && computerSelection === "scissors"):
             counterPlayer++;
             return "You Win! Rock beats Scissors!";
-            break;
-        case (playerSelection === "rock"):
-        case (computerSelection === "rock"):
+        case (playerSelection === "rock" && computerSelection === "rock"):
             return "Draw! Rock vs Rock";
-            break;
-        case (playerSelection === "paper"):
-        case (computerSelection === "rock"):
+        case (playerSelection === "paper" && computerSelection === "rock"):
             counterPlayer++;
             return "You Win! Paper beats Rock!";
-            break;
-        case (playerSelection === "paper"):
-        case (computerSelection === "scissors"):
+        case (playerSelection === "paper" && computerSelection === "scissors"):
             counterComputer++;
             return "You Lose! Scissors beats Paper!";
-            break;
-        case (playerSelection === "paper"):
-        case (computerSelection === "paper"):
+        case (playerSelection === "paper" && computerSelection === "paper"):
             return "Draw! Paper vs Paper";
-            break;
-        case (playerSelection === "scissors"):
-        case (computerSelection === "rock"):
+        case (playerSelection === "scissors" && computerSelection === "rock"):
             counterComputer++;
             return "You Lose! Rock beats Scissors!";
-            break;
-        case (playerSelection === "scissors"):
-        case (computerSelection === "paper"):
+        case (playerSelection === "scissors" && computerSelection === "paper"):
             counterPlayer++;
             return "You Win! Scissors beats Paper!";
-            break;
-        case (playerSelection === "scissors"):
-        case (computerSelection === "scissors"):
+        case (playerSelection === "scissors" && computerSelection === "scissors"):
             return "Draw! Scissors vs Scissors";
-            break;
+        default:
+            return "Invalid selections!";
     }
 }
